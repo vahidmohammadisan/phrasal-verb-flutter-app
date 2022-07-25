@@ -1,0 +1,18 @@
+name: phrasalverbs
+version: 0.1.0
+summary: phrasal verbs
+description: learn english phrasal verbs.
+
+confinement: strict
+base: core18
+
+parts:
+  phrasalverbs:
+    plugin: flutter
+    source: https://github.com/vahidmohammadisan/phrasal.git
+    flutter-target: lib/main.dart
+
+apps:
+  phrasalverbs:
+    command: phrasalverbs
+    extensions: [flutter-dev]

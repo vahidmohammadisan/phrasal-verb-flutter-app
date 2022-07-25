@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.deepPurple));
+        const SystemUiOverlayStyle(statusBarColor: Colors.purpleAccent));
 
     return MultiBlocProvider(
         providers: [
