@@ -46,7 +46,6 @@ class _MainPage extends State<MainPage> {
   }
 
   void loadFav() async {
-    favList.clear();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       favList = prefs.getStringList('fav')!;
@@ -79,9 +78,12 @@ class _MainPage extends State<MainPage> {
             TextButton(
                 onPressed: () => {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => FavoritePage()),
-                      )
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FavoritePage()))
+                          .then((value) {
+                        loadFav();
+                      })
                     },
                 child: const Text(
                   "favorite",
@@ -135,7 +137,6 @@ class _MainPage extends State<MainPage> {
                                   children: [
                                     SlidableAction(
                                       onPressed: (BuildContext context) => {
-                                        loadFav(),
                                         favList.add(
                                             state.phrase.body[position].link),
                                         addFav(),
@@ -165,8 +166,7 @@ class _MainPage extends State<MainPage> {
                                               state.phrase.body[position].link),
                                           placeholder: (context, url) =>
                                               const LinearProgressIndicator(
-                                            backgroundColor:
-                                                Colors.white,
+                                            backgroundColor: Colors.white,
                                             valueColor:
                                                 AlwaysStoppedAnimation<Color>(
                                                     Colors.purple),
