@@ -40,16 +40,16 @@ class _MainPage extends State<MainPage> {
 
   void addFav() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
+    //setState(() {
       prefs.setStringList('fav', favList);
-    });
+    //});
   }
 
   void loadFav() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
+    //setState(() {
       favList = prefs.getStringList('fav')!;
-    });
+    //});
   }
 
   @override
